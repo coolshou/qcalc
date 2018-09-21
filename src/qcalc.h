@@ -43,6 +43,7 @@
 
 #include <QMainWindow>
 #include <QWidget>
+#include <QSettings>
 
 QT_BEGIN_NAMESPACE
 class QLineEdit;
@@ -53,11 +54,9 @@ namespace Ui {
 class MainWindow;
 }
 
-//! [0]
 class Calculator : public QMainWindow
 {
     Q_OBJECT
-
 public:
     explicit Calculator(QWidget *parent = 0);
     ~Calculator();
@@ -77,38 +76,22 @@ private slots:
     void readMemory();
     void setMemory();
     void addToMemory();
-//! [0]
-
-//! [1]
 private:
     Ui::MainWindow *ui;
-//! [1] //! [2]
-    Button *createButton(const QString &text, const char *member);
+    QSettings *setting;
+    //Button *createButton(const QString &text, const char *member);
     void abortOperation();
     bool calculate(double rightOperand, const QString &pendingOperator);
-//! [2]
-
-//! [3]
     double sumInMemory;
-//! [3] //! [4]
     double sumSoFar;
-//! [4] //! [5]
     double factorSoFar;
-//! [5] //! [6]
     QString pendingAdditiveOperator;
-//! [6] //! [7]
     QString pendingMultiplicativeOperator;
-//! [7] //! [8]
     bool waitingForOperand;
-//! [8]
-
-//! [9]
     QLineEdit *display;
-//! [9] //! [10]
 
-    enum { NumDigitButtons = 10 };
-    Button *digitButtons[NumDigitButtons];
+    //enum { NumDigitButtons = 10 };
+    //Button *digitButtons[NumDigitButtons];
 };
-//! [10]
 
 #endif

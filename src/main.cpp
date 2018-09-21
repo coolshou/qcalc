@@ -46,6 +46,8 @@ int main(int argc, char *argv[])
 {
     QApplication app(argc, argv);
     QApplication::setApplicationName("qcalc");
+    QApplication::setOrganizationName("coolshou");
+    QApplication::setOrganizationDomain("coolshou.idv");
     Calculator calc;
     calc.show();
     return app.exec();

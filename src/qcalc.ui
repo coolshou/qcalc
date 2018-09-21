@@ -19,6 +19,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="qcalc.qrc">
+    <normaloff>:/images/qcalc.png</normaloff>:/images/qcalc.png</iconset>
+  </property>
   <widget class="QWidget" name="centralwidget">
    <layout class="QVBoxLayout" name="verticalLayout_3">
     <property name="spacing">
@@ -40,7 +44,7 @@
      <number>3</number>
     </property>
     <item>
-     <widget class="QLineEdit" name="lineEdit">
+     <widget class="QLineEdit" name="display">
       <property name="minimumSize">
        <size>
         <width>0</width>
@@ -68,7 +72,7 @@
         <number>0</number>
        </property>
        <item>
-        <widget class="QPushButton" name="pushButton">
+        <widget class="QPushButton" name="backspaceButton">
          <property name="minimumSize">
           <size>
            <width>80</width>
@@ -87,7 +91,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_2">
+        <widget class="QPushButton" name="clearButton">
          <property name="minimumSize">
           <size>
            <width>80</width>
@@ -106,7 +110,7 @@
         </widget>
        </item>
        <item>
-        <widget class="QPushButton" name="pushButton_3">
+        <widget class="QPushButton" name="clearAllButton">
          <property name="minimumSize">
           <size>
            <width>80</width>
@@ -170,7 +174,7 @@
            <number>3</number>
           </property>
           <item>
-           <widget class="QPushButton" name="pb_MC">
+           <widget class="QPushButton" name="clearMemoryButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -189,7 +193,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pb_MR">
+           <widget class="QPushButton" name="readMemoryButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -208,7 +212,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pb_MS">
+           <widget class="QPushButton" name="setMemoryButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -227,7 +231,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pb_MP">
+           <widget class="QPushButton" name="addToMemoryButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -267,7 +271,7 @@
            <number>3</number>
           </property>
           <item row="5" column="2">
-           <widget class="QPushButton" name="pb_dot">
+           <widget class="QPushButton" name="pointButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -324,7 +328,7 @@
            </widget>
           </item>
           <item row="5" column="5">
-           <widget class="QPushButton" name="pushButton_9">
+           <widget class="QPushButton" name="divisionButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -476,7 +480,7 @@
            </widget>
           </item>
           <item row="5" column="3">
-           <widget class="QPushButton" name="pushButton_15">
+           <widget class="QPushButton" name="changeSignButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -514,7 +518,7 @@
            </widget>
           </item>
           <item row="4" column="5">
-           <widget class="QPushButton" name="pb_x">
+           <widget class="QPushButton" name="timesButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -533,7 +537,7 @@
            </widget>
           </item>
           <item row="1" column="5">
-           <widget class="QPushButton" name="pushButton_8">
+           <widget class="QPushButton" name="plusButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -552,7 +556,7 @@
            </widget>
           </item>
           <item row="3" column="5">
-           <widget class="QPushButton" name="pb_minus">
+           <widget class="QPushButton" name="minusButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -598,7 +602,7 @@
            <number>3</number>
           </property>
           <item>
-           <widget class="QPushButton" name="pushButton_11">
+           <widget class="QPushButton" name="squareRootButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -617,7 +621,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_10">
+           <widget class="QPushButton" name="powerButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -636,7 +640,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_12">
+           <widget class="QPushButton" name="reciprocalButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -655,7 +659,7 @@
            </widget>
           </item>
           <item>
-           <widget class="QPushButton" name="pushButton_13">
+           <widget class="QPushButton" name="equalButton">
             <property name="minimumSize">
              <size>
               <width>40</width>
@@ -695,6 +699,8 @@
    </layout>
   </widget>
  </widget>
- <resources/>
+ <resources>
+  <include location="qcalc.qrc"/>
+ </resources>
  <connections/>
 </ui>
