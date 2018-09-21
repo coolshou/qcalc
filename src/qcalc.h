@@ -60,8 +60,11 @@ class Calculator : public QMainWindow
 public:
     explicit Calculator(QWidget *parent = 0);
     ~Calculator();
+    void keyPressEvent(QKeyEvent *event);
+
 protected:
     void closeEvent(QCloseEvent *event) override;
+    //bool eventFilter(QObject *target, QEvent *event);
 
 private slots:
     void digitClicked();

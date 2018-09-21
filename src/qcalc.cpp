@@ -59,7 +59,6 @@ Calculator::Calculator(QWidget *parent):
     waitingForOperand = true;
 
     display = ui->display;
-    //display = new QLineEdit("0");
     display->setReadOnly(true);
     display->setAlignment(Qt::AlignRight);
     //TODO: limit to 15 ? why?
@@ -352,3 +351,86 @@ void Calculator::saveSetting()
     setting->endGroup();
 
 }
+void Calculator::keyPressEvent(QKeyEvent *event)
+{
+    //num pad: 0~9, /, x, +, -, .
+    int key = event->key();
+    switch (key) {
+    case Qt::Key_0:
+        ui->pb_0->animateClick();
+        break;
+    case Qt::Key_1:
+        ui->pb_1->animateClick();
+        break;
+    case Qt::Key_2:
+        ui->pb_2->animateClick();
+        break;
+    case Qt::Key_3:
+        ui->pb_3->animateClick();
+        break;
+    case Qt::Key_4:
+        ui->pb_4->animateClick();
+        break;
+    case Qt::Key_5:
+        ui->pb_5->animateClick();
+        break;
+    case Qt::Key_6:
+        ui->pb_6->animateClick();
+        break;
+    case Qt::Key_7:
+        ui->pb_7->animateClick();
+        break;
+    case Qt::Key_8:
+        ui->pb_8->animateClick();
+        break;
+    case Qt::Key_9:
+        ui->pb_9->animateClick();
+        break;
+    case Qt::Key_Plus: //+
+        ui->plusButton->animateClick();
+        break;
+    case Qt::Key_Minus: //-
+        ui->minusButton->animateClick();
+        break;
+    case Qt::Key_Asterisk: //*
+        ui->timesButton->animateClick();
+        break;
+    case Qt::Key_Slash:  // /
+        ui->divisionButton->animateClick();
+        break;
+    case Qt::Key_Enter:  // =
+        ui->equalButton->animateClick();
+        break;
+    case Qt::Key_Period: // .
+        ui->pointButton->animateClick();
+        break;
+    default:
+        break;
+    }
+    QWidget::keyPressEvent(event);
+}
+//TODO: Key_Backspace, Key_Delete
+/*
+bool Calculator::eventFilter(QObject *target, QEvent *event)
+{
+    if (target == display)
+    {
+        if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            int  key = keyEvent->key();
+            switch (key){
+            case Qt::Key_Backspace:
+                ui->backspaceButton->animateClick();
+                return true;
+            case Qt::Key_Delete:
+                ui->clearButton->animateClick();
+                return true;
+            default:
+                break;
+            }
+        }
+    }
+    return QWidget::eventFilter(target, event);
+}
+*/
