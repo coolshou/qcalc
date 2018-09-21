@@ -51,6 +51,7 @@ Calculator::Calculator(QWidget *parent):
 {
     ui->setupUi(this);
     setting = new QSettings();
+    loadSetting();
 
     sumInMemory = 0.0;
     sumSoFar = 0.0;
@@ -326,4 +327,28 @@ bool Calculator::calculate(double rightOperand, const QString &pendingOperator)
         factorSoFar /= rightOperand;
     }
     return true;
+}
+void Calculator::closeEvent(QCloseEvent *event)
+{
+    //if (maybeSave()) {
+        saveSetting();
+        event->accept();
+    //} else {
+    //    event->ignore();
+    //}
+}
+
+void Calculator::loadSetting()
+{
+    setting->beginGroup("Window");
+    QRect geo = setting->value("Geometry", QRect(20,20,280,280)).value<QRect>();
+    setGeometry(geo);
+    setting->endGroup();
+}
+void Calculator::saveSetting()
+{
+    setting->beginGroup("Window");
+    setting->setValue("Geometry", this->geometry());
+    setting->endGroup();
+
 }

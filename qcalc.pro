@@ -1,3 +1,6 @@
+isEmpty(PREFIX) {
+ PREFIX = /usr/
+}
 TARGET = qcalc
 QT += widgets
 
@@ -8,8 +11,8 @@ SOURCES       = src/button.cpp \
     src/qcalc.cpp
 
 # install
-#target.path = $$[QT_INSTALL_EXAMPLES]/widgets/widgets/calculator
-#INSTALLS += target
+target.path = $$PREFIX/bin/
+
 
 RESOURCES += \
     src/qcalc.qrc
@@ -17,5 +20,20 @@ RESOURCES += \
 FORMS += \
     src/qcalc.ui
 
-DISTFILES += \
-    qcalc.desktop
+
+INSTALLS += target
+
+unix {
+DESKTOP = qcalc.desktop
+DESKTOP.path = $$PREFIX/share/appliactions/
+
+IMAGES = image/qcalc.png
+IMAGES.path = $$PREFIX/share/pixmaps/
+
+DISTFILES += $$DESKTOP \
+    $$IMAGES
+
+}
+
+
+

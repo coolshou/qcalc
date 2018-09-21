@@ -60,6 +60,8 @@ class Calculator : public QMainWindow
 public:
     explicit Calculator(QWidget *parent = 0);
     ~Calculator();
+protected:
+    void closeEvent(QCloseEvent *event) override;
 
 private slots:
     void digitClicked();
@@ -76,6 +78,9 @@ private slots:
     void readMemory();
     void setMemory();
     void addToMemory();
+    //UI
+    void loadSetting();
+    void saveSetting();
 private:
     Ui::MainWindow *ui;
     QSettings *setting;
