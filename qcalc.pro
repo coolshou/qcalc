@@ -16,3 +16,6 @@ RESOURCES += \
 
 FORMS += \
     src/qcalc.ui
+
+DISTFILES += \
+    qcalc.desktop

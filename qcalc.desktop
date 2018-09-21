@@ -1,0 +1,12 @@
+[Desktop Entry]
+Name=QCalculator
+Type=Application
+GenericName=Qt Calculator
+Comment=Qt Calculator
+
+Icon=qcalc
+Exec=qcalc
+Terminal=false
+StartupNotify=true
+Categories=Qt;Utility;Calculator;
+
