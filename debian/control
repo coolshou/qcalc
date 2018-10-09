@@ -1,0 +1,15 @@
+Source: qcalc
+Section: utility
+Priority: optional
+Maintainer: jimmy <jimmy@jimmy-alpha>
+Build-Depends: debhelper (>= 10), qtbase5-dev
+Standards-Version: 4.1.2
+Homepage: https://github.com/coolshou/qcalc
+Vcs-Git: https://github.com/coolshou/qcalc.git
+#Vcs-Browser: https://anonscm.debian.org/cgit/collab-maint/qcalc.git
+
+Package: qcalc
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}
+Description: simpe QT base calcuator
+ simpe QT base calcuator

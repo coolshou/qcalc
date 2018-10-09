@@ -27,12 +27,13 @@ unix {
 DESKTOP = qcalc.desktop
 DESKTOP.path = $$PREFIX/share/appliactions/
 
-IMAGES = image/qcalc.png
+IMAGES = src/images/qcalc.png
 IMAGES.path = $$PREFIX/share/pixmaps/
 
 DISTFILES += $$DESKTOP \
     $$IMAGES
 
+INSTALLS += DISTFILES
 }
 
 
