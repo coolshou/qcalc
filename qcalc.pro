@@ -33,7 +33,6 @@ IMAGES.path = $$PREFIX/share/pixmaps/
 DISTFILES += $$DESKTOP \
     $$IMAGES
 
-INSTALLS += DISTFILES
 }
 
 
