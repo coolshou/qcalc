@@ -1,3 +1,9 @@
+qcalc (0.2-1) UNRELEASED; urgency=medium
+
+  * add ctrl+c and ctrl+v for copy paste
+
+ -- coolshou <coolshou2060@gmail.com>  Thu, 29 Feb 2024 15:45:32 +0800
+
 qcalc (0.1-2) unstable; urgency=medium
 
   * Initial release
