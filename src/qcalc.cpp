@@ -347,18 +347,18 @@ bool Calculator::eventFilter(QObject *obj, QEvent *event)
         {
             QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
             //qDebug() << "key: " << keyEvent->key() << "from" << obj;
+            if (keyEvent->key()==Qt::Key_C&&keyEvent->modifiers().testFlag(Qt::ControlModifier)){
+                //ctrl+c
+                clipboard->setText(display->text());
+                return true;
+            }
+            if (keyEvent->key()==Qt::Key_V&&keyEvent->modifiers().testFlag(Qt::ControlModifier)){
+                //ctrl+v
+                display->setText(clipboard->text());
+                return true;
+            }
             int  key = keyEvent->key();
             switch (key){
-            case Qt::Key_C:
-                if (keyEvent->modifiers().testFlag(Qt::ControlModifier)){
-                    clipboard->setText(display->text());
-                    return true;
-                }
-            case Qt::Key_V:
-                if (keyEvent->modifiers().testFlag(Qt::ControlModifier)){
-                    display->setText(clipboard->text());
-                    return true;
-                }
             /*case Qt::Key_Backspace:
                 ui->backspaceButton->animateClick();
                 return true;
