@@ -44,6 +44,7 @@
 #include <QMainWindow>
 #include <QWidget>
 #include <QSettings>
+#include <QClipboard>
 
 QT_BEGIN_NAMESPACE
 class QLineEdit;
@@ -65,6 +66,7 @@ public:
 protected:
     void closeEvent(QCloseEvent *event) override;
     //bool eventFilter(QObject *target, QEvent *event);
+     bool eventFilter(QObject *obj, QEvent *event);
 
 private slots:
     void digitClicked();
@@ -97,7 +99,7 @@ private:
     QString pendingMultiplicativeOperator;
     bool waitingForOperand;
     QLineEdit *display;
-
+    QClipboard *clipboard;
     //enum { NumDigitButtons = 10 };
     //Button *digitButtons[NumDigitButtons];
 };

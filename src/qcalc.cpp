@@ -38,7 +38,7 @@
 **
 ****************************************************************************/
 #include <QtWidgets>
-
+#include <QApplication>
 #include <cmath>
 
 //#include "button.h"
@@ -52,7 +52,9 @@ Calculator::Calculator(QWidget *parent):
     ui->setupUi(this);
     setting = new QSettings();
     loadSetting();
-
+    ui->history->setColumnWidth(1,10);
+    qApp->installEventFilter(this);
+    clipboard = QApplication::clipboard();
     sumInMemory = 0.0;
     sumSoFar = 0.0;
     factorSoFar = 0.0;
@@ -319,8 +321,10 @@ bool Calculator::calculate(double rightOperand, const QString &pendingOperator)
     } else if (pendingOperator == tr("-")) {
         sumSoFar -= rightOperand;
     } else if (pendingOperator == tr("\303\227")) {
+        // multiply *
         factorSoFar *= rightOperand;
     } else if (pendingOperator == tr("\303\267")) {
+        // divide /
         if (rightOperand == 0.0)
             return false;
         factorSoFar /= rightOperand;
@@ -334,7 +338,39 @@ void Calculator::closeEvent(QCloseEvent *event)
         event->accept();
     //} else {
     //    event->ignore();
-    //}
+        //}
+}
+
+bool Calculator::eventFilter(QObject *obj, QEvent *event)
+{
+    if (event->type() == QEvent::KeyPress)
+        {
+            QKeyEvent *keyEvent = static_cast<QKeyEvent *>(event);
+            //qDebug() << "key: " << keyEvent->key() << "from" << obj;
+            int  key = keyEvent->key();
+            switch (key){
+            case Qt::Key_C:
+                if (keyEvent->modifiers().testFlag(Qt::ControlModifier)){
+                    clipboard->setText(display->text());
+                    return true;
+                }
+            case Qt::Key_V:
+                if (keyEvent->modifiers().testFlag(Qt::ControlModifier)){
+                    display->setText(clipboard->text());
+                    return true;
+                }
+            /*case Qt::Key_Backspace:
+                ui->backspaceButton->animateClick();
+                return true;
+            case Qt::Key_Delete:
+                ui->clearButton->animateClick();
+                return true;
+            */
+            default:
+                break;
+            }
+        }
+        return QObject::eventFilter(obj, event);
 }
 
 void Calculator::loadSetting()
